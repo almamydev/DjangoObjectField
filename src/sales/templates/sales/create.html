@@ -29,7 +29,15 @@
             </div>
             <div>
                 {{ form.client.label_tag }}
-                {{ form.client }}
+                {{ form.client.as_hidden }}
+                <div class="client-typing">
+                    <input type="text" name="client_name">
+                    <div class="client-list">
+                        {% for client in clients_list %}
+                            <p class="client-item" data-id="{{ client.pk }}">{{ client.fullname }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
             <div>
                 {{ form.product.label_tag }}
