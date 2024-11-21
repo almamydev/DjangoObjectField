@@ -1,0 +1,13 @@
+<div class="client-list" id="client_list">
+    {% for client in clients_list %}
+        <p class="client-item" data-id="{{ client.pk }}">{{ client.fullname }}</p>
+    {% endfor %}
+</div>
+<script>
+    Array.from(document.getElementsByClassName("client-item")).forEach(item => {
+        item.addEventListener("click", function() {
+            document.getElementById("id_client").value = item.dataset.id;
+            document.getElementById("client_name_binding").value = item.innerText;
+        });
+    });
+</script>
