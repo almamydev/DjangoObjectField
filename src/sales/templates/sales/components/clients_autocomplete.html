@@ -1,3 +1,20 @@
+<style>
+    .client-list {
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        background-color: rgb(236, 236, 236);
+        border-radius: 5px;
+    }
+    .client-item {
+        cursor: pointer;
+        padding: 3px;
+    }
+    .client-item:hover {
+        background-color: lightgray;
+    }
+</style>
 <div class="client-list" id="client_list">
     {% for client in clients_list %}
         <p class="client-item" data-id="{{ client.pk }}">{{ client.fullname }}</p>
