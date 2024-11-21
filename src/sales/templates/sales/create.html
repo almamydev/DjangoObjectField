@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/sales/styles.css' %}">
+    <script src="https://unpkg.com/htmx.org@2.0.3" integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq" crossorigin="anonymous"></script>
+    <title>DjangoHtmx | Sales</title>
+</head>
+<body>
+    <div class="content">
+        <div class="messages">
+            {% for message in messages %}
+                <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+            {% endfor %}
+        </div>
+        <br>
+        <h2>Nouvelle vente</h2>
+        <a href="{% url 'sales:list' %}">Retour à la liste</a>
+        <br>
+        <br>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                {{ form.sale_date.label_tag }}
+                {{ form.sale_date}}
+            </div>
+            <div>
+                {{ form.client.label_tag }}
+                {{ form.client }}
+            </div>
+            <div>
+                {{ form.product.label_tag }}
+                {{ form.product}}
+            </div>
+            <br>
+            <button type="submit">Valider</button>
+        </form>
+    </div>
+    
+</body>
+</html>

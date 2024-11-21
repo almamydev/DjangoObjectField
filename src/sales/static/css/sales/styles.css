@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 95vh;
+    background-color: #f5f5f5;
+    position: relative;
+}
+.content {
+    width: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+}
+h2 {
+    margin-bottom: 20px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+label {
+    display: block;
+}
+input, select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+}
+button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #ccc;
+    cursor: pointer;
+}
+.messages {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+}
+.messages p {
+    padding: 10px;
+    border-radius: 10px;    
+    background-color: #fff;
+    width: 100%;
+}
+.messages p.success {
+    border: 1px solid rgb(129, 212, 129);
+    color: rgb(129, 212, 129);
+}
+table, th, td {
+    border: 1px solid rgb(179, 179, 179);
+    border-collapse: collapse;
+}
+table {
+    width: 100%;
+
+}
+th, td {
+    padding: 5px;
+}
+th {
+    background-color: #ccc;
+}
+.content {
+    width: 600px;
+}

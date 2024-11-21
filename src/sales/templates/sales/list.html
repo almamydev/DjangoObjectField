@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/sales/styles.css' %}">
+    <title>DjangoHtmx | Sales</title>
+</head>
+
+<body>
+    <div class="content">
+        <h2>Ventes</h2>
+        <a href="{% url 'sales:create' %}">+ Nouvelle vente</a>
+        <br>
+        <br>
+        {% if sales %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Client</th>
+                        <th>Produit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for sale in sales %}
+                        <tr>
+                            <td>{{ sale.sale_date|date:"d-m-Y" }}</td>
+                            <td>{{ sale.client }}</td>
+                            <td>{{ sale.product }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Aucune vente enregistrée.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
