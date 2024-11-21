@@ -6,6 +6,13 @@
         gap: 2px;
         background-color: rgb(236, 236, 236);
         border-radius: 5px;
+        position: absolute;
+        left: 0;
+        top: calc(100% + 5px);
+        width: 100%;    
+    }
+    .client-list.hide {
+        display: none;
     }
     .client-item {
         cursor: pointer;
@@ -27,4 +34,21 @@
             document.getElementById("client_name_binding").value = item.innerText;
         });
     });
+    document.addEventListener("DOMContentLoaded", () => {
+        if (!document.getElementById("client_list").classList.contains("hide")) {
+            document.getElementById("client_list").classList.add("hide");
+        } 
+    })
+    document.getElementById("client_name_binding").addEventListener("focus", () => {
+        if (document.getElementById("client_list").classList.contains("hide")) {
+            document.getElementById("client_list").classList.remove("hide");
+        }
+    })
+    document.addEventListener("click", (event) => {
+        if (!event.target.closest("#client_list") && !event.target.closest("#client_name_binding")) {
+            if (!document.getElementById("client_list").classList.contains("hide")) {
+                document.getElementById("client_list").classList.add("hide");
+            }
+        }
+    })
 </script>

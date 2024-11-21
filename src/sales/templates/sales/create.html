@@ -31,7 +31,7 @@
             <div>
                 {{ form.client.label_tag }}
                 {{ form.client.as_hidden }}
-                <div class="client-typing">
+                <div class="client-typing" style="position: relative;">
                     <input type="text" name="client_name" id="client_name_binding" hx-get="{% url 'sales:create' %}" hx-trigger="keyup changed delay:100ms" hx-target="#client_list" hx-swap="outerHTML">
                     {% include 'sales/components/clients_autocomplete.html' %}
                 </div>
